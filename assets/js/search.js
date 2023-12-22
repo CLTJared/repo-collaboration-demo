@@ -6,6 +6,7 @@
 const userSearchTerm = $("#library-search");
 const userSearchFormat = $("#library-format");
 const formSubmit = $('button[type=submit]');
+const searchForm = $('#lc-search');
 
 $(function() {
     //Verifies that the page load has finished and jQuery is active
@@ -26,5 +27,14 @@ var formSearchHandler = function (event) {
         console.log('formSearchHandler:', searchTerm)
         const libraryQuery = 'https://www.loc.gov/search/?q=' + searchTerm + '&fo=json&at=results'
         console.log('formSearchHandler:', libraryQuery)
+        searchForm[0].reset();
+
+        goLibraryResults(searchTerm);
+
     } else { console.log('formSearchHandler:', 'Search Term was null'); }
-  };
+  }
+
+function goLibraryResults(searchTerm) {
+    const url = "./results.html?search=" + searchTerm;
+    $(location).attr('href', url);
+}
