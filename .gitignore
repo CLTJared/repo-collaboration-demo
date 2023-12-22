@@ -1,0 +1,2 @@
+# Ignores the MAC specific file for directory information
+.DS_Store
